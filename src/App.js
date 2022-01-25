@@ -1,7 +1,7 @@
 import './index.scss';
-import { Briefcase } from './components/Header/Briefcase';
-import { Header } from './components/Header/Header';
-import CoinTable from './components/Main/CoinTable';
+import { Briefcase } from './components/Briefcase';
+import { Header } from './components/Header';
+import CoinTable from './components/CoinTable';
 
 function App() {
   return (
