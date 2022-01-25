@@ -1,4 +1,7 @@
 $primary-color: #333;
+$secondary-color: #cce2ff;
+$dark-color: #212529;
+$light-color: #f8f9fa;
 
 body {
   margin: 0;
@@ -11,18 +14,21 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 .header {
-  background-color:#cce2ff;
-  
+  background-color:$dark-color;
+  display:flex;
+  justify-content: center;
+
   .header-container {
     display:flex;
     flex-direction: row;
-    padding: 15px;
     justify-content: center;
+    max-width: 640px;
+    width: 100%;
+    padding: 15px;
   }
 }
 
@@ -35,5 +41,17 @@ code {
 
   .menu__item {
     padding: 5px;
+
+    .subtitle {
+      color: $secondary-color;
+      font-size: large;
+      font-weight: 700;
+    }
+
+    .price {
+      color: $light-color;
+      font-size: large;
+      font-weight: 400;
+    }
   }
 }

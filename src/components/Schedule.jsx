@@ -17,39 +17,73 @@ import {
 
 const data = [
   {
-    name: "11AM",
+    name: "11PM",
     uv: 4000,
-    amt: 2400,
   },
   {
-    name: "11AM",
+    name: "1AM",
     uv: 3000,
-    amt: 2210,
   },
   {
-    name: "11AM",
+    name: "3AM",
     uv: 2000,
-    pv: 9800,    amt: 2290,
+    pv: 9800,    
   },
   {
-    name: "11AM",
+    name: "5AM",
     uv: 2780,
-    amt: 2000,
   },
   {
-    name: "11AM",
+    name: "7AM",
     uv: 1890,
-    amt: 2181,
   },
   {
-    name: "11AM",
+    name: "9AM",
     uv: 2390,
-    amt: 2500,
   },
   {
     name: "11AM",
     uv: 3490,
-    amt: 2100,
+  },
+  {
+    name: "1PM",
+    uv: 3490,
+  },
+  {
+    name: "3PM",
+    uv: 4000,
+  },
+  {
+    name: "5AM",
+    uv: 3000,
+  },
+  {
+    name: "7AM",
+    uv: 2000,  
+  },
+  {
+    name: "9AM",
+    uv: 2780,
+  },
+  {
+    name: "11AM",
+    uv: 1890,
+  },
+  {
+    name: "1PM",
+    uv: 2390,
+  },
+  {
+    name: "3PM",
+    uv: 3490,
+  },
+  {
+    name: "5PM",
+    uv: 3490,
+  },
+  {
+    name: "7PM",
+    uv: 2000,
   },
 ];
 
