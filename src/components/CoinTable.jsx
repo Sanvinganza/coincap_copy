@@ -17,7 +17,7 @@ import { KeyboardArrowLeft, KeyboardArrowRight } from "@material-ui/icons";
 import LastPageIcon from "@mui/icons-material/LastPage";
 import FirstPageIcon from "@mui/icons-material/FirstPage";
 import AddIcon from '@mui/icons-material/Add';
-import { Briefcase } from "./Briefcase";
+import { DialogAddCrypto } from "./DialogAddCrypto";
 
 function createData(name, price, marketCap, volume, change) {
   return {
@@ -68,17 +68,17 @@ function Row(props) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => {setOpen(!open)};
 
-  const [openBriefcase, setOpenBriefcase] = React.useState(false);
-  const handleOpenBriefcase = () => {setOpenBriefcase(!openBriefcase)};
+  const [openDialogAddCrypto, setOpenDialogAddCrypto] = React.useState(false);
+  const handleOpenDialogAddCrypto = () => {setOpenDialogAddCrypto(!openDialogAddCrypto)};
   return (
     <>
-      <Briefcase open={openBriefcase} handleOpenBriefcase={handleOpenBriefcase} />
+      <DialogAddCrypto open={openDialogAddCrypto} handleOpenDialogAddCrypto={handleOpenDialogAddCrypto} />
 
       <TableRow>
         
         <TableCell>
           <IconButton size="small" 
-            onClick={handleOpenBriefcase}
+            onClick={handleOpenDialogAddCrypto}
           >
           <AddIcon color="primary" /> 
           </IconButton>

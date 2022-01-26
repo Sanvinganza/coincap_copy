@@ -2,6 +2,7 @@ $primary-color: #333;
 $secondary-color: #cce2ff;
 $dark-color: #212529;
 $light-color: #f8f9fa;
+$green-color: #37ac46;
 
 body {
   margin: 0;
@@ -26,14 +27,13 @@ button {
   border: 0;
   border-radius: 2px;
 }
-.dialog {
-  padding: 0;
-}
+
+
 .header {
   background-color:$dark-color;
   display:flex;
   justify-content: center;
-
+    
   .header-container {
     display:flex;
     flex-direction: row;
@@ -41,6 +41,15 @@ button {
     max-width: 640px;
     width: 100%;
     padding: 15px;
+
+    .cartIcon {
+      color: $green-color;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;    
+      width: 32px;
+      height: 32px;
+    }
   }
 }
 
@@ -65,5 +74,12 @@ button {
       font-size: large;
       font-weight: 400;
     }
+  }
+}
+
+.briefcase {
+  
+  .row {
+    min-width: 320px;
   }
 }
