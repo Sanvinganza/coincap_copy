@@ -9,8 +9,6 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { TableFooter, TablePagination } from "@mui/material";
 import Schedule from "./Schedule";
 import { Box } from "@mui/system";
@@ -18,11 +16,13 @@ import { useTheme } from "@emotion/react";
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@material-ui/icons";
 import LastPageIcon from "@mui/icons-material/LastPage";
 import FirstPageIcon from "@mui/icons-material/FirstPage";
+import AddIcon from '@mui/icons-material/Add';
+import { Briefcase } from "./Briefcase";
 
-function createData(name, prices, marketCap, volume, change) {
+function createData(name, price, marketCap, volume, change) {
   return {
     name,
-    prices,
+    price,
     marketCap,
     volume,
     change,
@@ -30,16 +30,26 @@ function createData(name, prices, marketCap, volume, change) {
 }
 
 const rows = [
-  createData("Bitcoin", 159, 6.0, 24, 4.0, 3.99),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3, 4.99),
-  createData("Eclair", 262, 16.0, 24, 6.0, 3.79),
-  createData("Cupcake", 305, 3.7, 67, 4.3, 2.5),
-  createData("Gingerbread", 356, 16.0, 49, 3.9, 1.5),
-  createData("Frozserdfgen yoghseardgurt", 159, 6.0, 24, 4.0, 3.99),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3, 4.99),
-  createData("Eclair", 262, 16.0, 24, 6.0, 3.79),
-  createData("Cupcake", 305, 3.7, 67, 4.3, 2.5),
-  createData("Gingerbread", 356, 16.0, 49, 3.9, 1.5),
+  createData("Bitcoin", 159, "6.0", "24", "4.0"),
+  createData("Ice cream sandwich", 237, "9.0", "37", "4.3"),
+  createData("Eclair", 262, "16.0", "24", "6.0"),
+  createData("Cupcake", 305, "3.7", "67", "4.3"),
+  createData("Gingerbread", 356, 16.0,"49", "3.9", "1.5"),
+  createData("Frozserdfgen yoghseardgurt", 159, "6.0", "24", "4.0"),
+  createData("Ice cream sandwich", 237, "9.0", "37", "4.3"),
+  createData("Eclair", 262, 16.0, "24", "6.0"),
+  createData("Cupcake", 305, 3.7, "67", "4.3"),
+  createData("Gingerbread", 356, "16.0", "49", "3.9"),
+  createData("Bitcoin", 159, "6.0", "24", "4.0"),
+  createData("Ice cream sandwich", 237, "9.0", "37", "4.3"),
+  createData("Eclair", 262, "16.0", "24", "6.0"),
+  createData("Cupcake", 305, "3.7", "67", "4.3"),
+  createData("Gingerbread", 356, 16.0,"49", "3.9", "1.5"),
+  createData("Frozserdfgen yoghseardgurt", 159, "6.0", "24", "4.0"),
+  createData("Ice cream sandwich", 237, "9.0", "37", "4.3"),
+  createData("Eclair", 262, 16.0, "24", "6.0"),
+  createData("Cupcake", 305, 3.7, "67", "4.3"),
+  createData("Gingerbread", 356, "16.0", "49", "3.9")
 ];
 
 Row.propTypes = {
@@ -54,28 +64,32 @@ Row.propTypes = {
 
 function Row(props) {
   const { row } = props;
-  const [open, setOpen] = React.useState(false);
 
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => {setOpen(!open)};
+
+  const [openBriefcase, setOpenBriefcase] = React.useState(false);
+  const handleOpenBriefcase = () => {setOpenBriefcase(!openBriefcase)};
   return (
     <>
-      <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
+      <Briefcase open={openBriefcase} handleOpenBriefcase={handleOpenBriefcase} />
+
+      <TableRow>
+        
         <TableCell>
-          <IconButton
-            aria-label="expand row"
-            size="small"
-            onClick={() => setOpen(!open)}
+          <IconButton size="small" 
+            onClick={handleOpenBriefcase}
           >
-            {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+          <AddIcon color="primary" /> 
           </IconButton>
         </TableCell>
 
-        <TableCell component="th" scope="row">
-          {row.name}
-        </TableCell>
-        <TableCell align="right">{row.price}</TableCell>
-        <TableCell align="right">{row.marketCap}</TableCell>
-        <TableCell align="right">{row.volume}</TableCell>
-        <TableCell align="right">{row.change}</TableCell>
+        <TableCell onClick={handleOpen} scope="row">{row.name}</TableCell>
+        <TableCell onClick={handleOpen} align="right">{row.price}</TableCell>
+        <TableCell onClick={handleOpen} align="right">{row.marketCap}</TableCell>
+        <TableCell onClick={handleOpen} align="right">{row.volume}</TableCell>
+        <TableCell onClick={handleOpen} align="right">{row.change}</TableCell>
+
       </TableRow>
 
       <TableRow>
@@ -107,6 +121,7 @@ export default function CollapsibleTable() {
   return (
     <TableContainer component={Paper}>
       <Table aria-label="collapsible table">
+
         <TableHead>
           <TableRow>
             <TableCell />
@@ -128,7 +143,7 @@ export default function CollapsibleTable() {
 
           {emptyRows > 0 && (
             <TableRow style={{ height: 53 * emptyRows }}>
-              <TableCell colSpan={6} />
+              <TableCell colSpan={7} />
             </TableRow>
           )}
         </TableBody>
@@ -136,8 +151,7 @@ export default function CollapsibleTable() {
         <TableFooter>
           <TableRow>
             <TablePagination
-              rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
-              colSpan={3}
+              rowsPerPageOptions={[5, 10, { label: "All", value: -1 }]}
               count={rows.length}
               rowsPerPage={rowsPerPage}
               page={page}
@@ -153,6 +167,7 @@ export default function CollapsibleTable() {
             />
           </TableRow>
         </TableFooter>
+      
       </Table>
     </TableContainer>
   );

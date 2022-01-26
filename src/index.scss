@@ -17,6 +17,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+button {
+  font-size: large;
+  font-weight: 400;
+  background-color: $primary-color;
+  color: $light-color;
+  padding: 5px 10px;
+  border: 0;
+  border-radius: 2px;
+}
+.dialog {
+  padding: 0;
+}
 .header {
   background-color:$dark-color;
   display:flex;
